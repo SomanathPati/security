@@ -15,7 +15,6 @@ public class usercontroller {
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody UserEntity user) {
-        // Logic to save user (not implemented for brevity)
         return ResponseEntity.ok("User registered successfully");
     }
 
