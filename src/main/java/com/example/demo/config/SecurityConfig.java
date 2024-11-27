@@ -19,6 +19,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
+        .headers(headers->headers.frameOptions(frameOptions->frameOptions.sameOrigin()))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/user/register", "/user/hello", "/h2-console").permitAll()
                 .requestMatchers(request -> request.getMethod().equals("POST")).authenticated()
